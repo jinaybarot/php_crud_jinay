@@ -11,7 +11,6 @@
 
 <body>
     <?php include "db_add.php"; ?>
-    <?php include "db_update.php"; ?>
 
     <div class="mt-3 d-flex justify-content-center align-items-center">
         <form class="p-4 w-50 border border-2 rounded-2 shadow" method="post" id="form">

@@ -10,27 +10,32 @@
 </head>
 
 <body>
-    <?php include "db_add.php"; ?>
+
+<?php 
+    include "db_comman.php"; 
+
+    include "db_update.php";
+    ?>
 
     <div class="mt-3 d-flex justify-content-center align-items-center">
-        <form class="p-4 w-50 border border-2 rounded-2 shadow" method="post" id="form">
-            <input type="hidden" id="hide" value="">
+        <form class="p-4 w-50 border border-2 rounded-2 shadow" method="post" id="form" action="db_add.php">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="row mb-3">
                 <label for="firstname" class="col-3 col-form-label text-end">Firstname:</label>
                 <div class="col-9">
-                    <input type="text" name="firstname" class="form-control w-75" id="firstname">
+                    <input type="text" name="firstname" class="form-control w-75" id="firstname" value="<?php echo $firstname; ?>">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="lastname" class="col-3 col-form-label text-end">Lastname:</label>
                 <div class="col-9">
-                    <input type="text" name="lastname" class="form-control w-75" id="lastname">
+                    <input type="text" name="lastname" class="form-control w-75" id="lastname" value="<?php echo $lastname; ?>">
                 </div>
             </div>            
             <div class="row mb-3">
                 <label for="gmail" class="col-3 col-form-label text-end">Gmail:</label>
                 <div class="col-9">
-                    <input type="text" name="email" class="form-control w-75" id="email">
+                    <input type="text" name="email" class="form-control w-75" id="email" value="<?php echo $email; ?>">
                 </div>
             </div>
             <div class="text-center">
@@ -69,7 +74,7 @@
                         <td><?php echo $Lastname; ?></td>
                         <td><?php echo $Email; ?></td>
                         <td>
-                            <a href="db_update.php?id=<?php echo $Id; ?>" class="btn btn-danger">Edit</a>
+                            <a href="index.php?edit=<?php echo $Id; ?>" class="btn btn-danger">Edit</a>
                             <a href="db_delete.php?id=<?php echo $Id; ?>" class="btn btn-info">Delete</a>
                         </td>
                     </tr>

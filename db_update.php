@@ -1,23 +1,18 @@
 <?php
+
 include "db_comman.php";
 
-$id = $_GET['id'];
-$sql = "SELECT * FROM crud WHERE id = $id";
-$result = mysqli_query($conn, $sql);
-$user = mysqli_fetch_assoc($result);
+$id = $firstname = $lastname = $email = "";
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $fname = $_POST['firstname'];
-    $lname = $_POST['lastname'];
-    $email = $_POST['email'];
-
-    $sql = "UPDATE crud SET firstname='$fname', lastname='$lname', email='$email' WHERE id='$id'";
-
-    if (mysqli_query($conn, $sql)) {
-        header("Location: index.php");
-    } else {
-        echo "Error: " . mysqli_error($conn);
+    if (isset($_GET['edit'])) {
+        $id = $_GET['edit'];
+        $sql = "SELECT * FROM crud WHERE id = $id";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            $firstname = $row['firstname'];
+            $lastname = $row['lastname'];
+            $email = $row['email'];
+        }
     }
-}
 ?>
-

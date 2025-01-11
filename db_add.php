@@ -16,12 +16,7 @@ if (isset($_POST['submit'])) {
             echo "fail to insert data.";
         }
     } else {
-        $sql = "UPDATE crud SET firstname = $firstname, lastname = $lastname, email = $email WHERE id= " . $_GET["id"];
-        if (mysqli_query($conn, $sql)) {
-            header("location: index.php");
-        } else {
-            echo "something went wrong";
-        }
+        echo "there is some problen..";
     }
 }
 ?>
